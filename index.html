@@ -45,13 +45,16 @@
             border: none;
             border-radius: 8px;
         }
-        .download-link {
+        .download-link, .twitter-link {
             position: absolute;
             top: 10%; /* Center vertically */
             left: 10px; /* Adjust horizontal position */
             transform: translateY(-50%);
         }
-        .download-link img {
+        .twitter-link {
+            top: 30%; /* Position the Twitter link below the download link */
+        }
+        .download-link img, .twitter-link img {
             width: 50px; /* Adjust size as needed */
             height: auto;
             cursor: pointer;
@@ -79,6 +82,11 @@
         <div class="download-link">
             <a href="download.php?file=https://raw.githubusercontent.com/Ag3NtK/CS2/main/ag3.cfg" download="ag3.cfg">
                 <img src="cfg_icon.png" alt="Download CFG">
+            </a>
+        </div>
+        <div class="twitter-link">
+            <a href="https://x.com/Ag3NtKK" target="_blank">
+                <img src="twittericon.png" alt="Twitter Profile">
             </a>
         </div>
         <footer>
