@@ -19,7 +19,6 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative; /* Add this to position the image */
         }
         h1 {
             text-align: center;
@@ -45,24 +44,22 @@
             border: none;
             border-radius: 8px;
         }
-        .download-link {
-            position: absolute;
-            top: 10%; /* Center vertically */
-            left: 10px; /* Adjust horizontal position */
-            transform: translateY(-50%);
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 20px 0;
         }
-        .twitter-link {
-            top: 30%; /* Position the Twitter link below the download link */
+        .link-container a {
+            margin-bottom: 10px;
         }
-        .download-link img {
+        .link-container img {
             width: 50px; /* Adjust size as needed */
             height: auto;
             cursor: pointer;
         }
-        .twitter-link img {
+        .link-container .twitter-link img {
             width: 40px; /* Adjust size as needed */
-            height: auto;
-            cursor: pointer;
         }
         a {
             color: inherit;
@@ -84,19 +81,17 @@
             <iframe src="https://www.youtube.com/embed/ybx8GesGBSU?si=dmGjALGLkgBC8saM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
-        <div class="download-link">
+        <div class="link-container">
             <a href="download.php?file=https://raw.githubusercontent.com/Ag3NtK/CS2/main/ag3.cfg" download="ag3.cfg">
                 <img src="cfg_icon.png" alt="Download CFG">
             </a>
-        </div>
-        <div class="twitter-link">
-            <a href="https://x.com/Ag3NtKK" target="_blank">
+            <a href="https://x.com/Ag3NtKK" target="_blank" class="twitter-link">
                 <img src="twittericon.png" alt="Twitter Profile">
             </a>
         </div>
         <footer>
             <p>Created with ❤️ by Ag3NtK | 
-                    <a href="https://github.com/Ag3NtK/ag3" target="_blank">GitHub Repository</a></p>
+                <a href="https://github.com/Ag3NtK/ag3" target="_blank">GitHub Repository</a></p>
         </footer>
     </div>
 </body>
