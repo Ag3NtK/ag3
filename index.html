@@ -19,6 +19,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Add this to position the image */
         }
         h1 {
             text-align: center;
@@ -44,20 +45,17 @@
             border: none;
             border-radius: 8px;
         }
-        .download-link {
+        .icon-link {
             position: absolute;
-            top: 10px; /* Adjust vertical position */
+            top: 10%; /* Adjust vertical position */
             left: 10px; /* Adjust horizontal position */
         }
-        .twitter-link {
-            position: absolute;
-            top: 70px; /* Position the Twitter link just below the download link */
-            left: 10px; /* Align with the download link */
-        }
-        .download-link img, .twitter-link img {
+        .icon-link img {
             width: 50px; /* Adjust size as needed */
             height: auto;
             cursor: pointer;
+            display: block;
+            margin-bottom: 10px; /* Space between the images */
         }
         a {
             color: inherit;
@@ -79,12 +77,10 @@
             <iframe src="https://www.youtube.com/embed/ybx8GesGBSU?si=dmGjALGLkgBC8saM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
-        <div class="download-link">
+        <div class="icon-link">
             <a href="download.php?file=https://raw.githubusercontent.com/Ag3NtK/CS2/main/ag3.cfg" download="ag3.cfg">
                 <img src="cfg_icon.png" alt="Download CFG">
             </a>
-        </div>
-        <div class="twitter-link">
             <a href="https://x.com/Ag3NtKK" target="_blank">
                 <img src="twittericon.png" alt="Twitter Profile">
             </a>
