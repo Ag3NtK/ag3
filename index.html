@@ -58,8 +58,17 @@
             left: 10px;
             transform: translateY(-50%);
         }
+        
+        .download-link-3 {
+            position: absolute;
+            top: calc(10% + 160px); /* 10% + 50px to position it 10px below the first link */
+            left: 10px;
+            transform: translateY(-50%);
+        }
+        
         .download-link-1 img,
-        .download-link-2 img {
+        .download-link-2 img
+        .download-link-1 img {
             width: 70px; /* Increase image size */
             height: auto;
             cursor: pointer;
@@ -91,6 +100,11 @@
     <div class="download-link-2">
         <a href="download.php?file=https://raw.githubusercontent.com/Ag3NtK/Ag3Debloat/main/Ag3Install/DeBloat.bat" download="DeBloat.bat">
             <img src="images/debloaticon.png" alt="Download DeBloat">
+        </a>
+    </div>
+     <div class="download-link-3">
+        <a href="download.php?file=https://raw.githubusercontent.com/Ag3NtK/Ag3Debloat/main/Ag3Install/AppsInstaller.bat" download="AppsInstaller.bat">
+            <img src="images/appasicon.png" alt="Download AppsInstaller">
         </a>
     </div>
     <footer>
