@@ -19,7 +19,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative; /* Add this to position the image */
+            position: relative;
         }
         h1 {
             text-align: center;
@@ -27,14 +27,14 @@
         }
         .video-container {
             position: relative;
-            width: 50%; /* Adjust this percentage to make the video smaller or larger */
-            padding-bottom: 28.125%; /* Maintain 16:9 aspect ratio */
+            width: 50%;
+            padding-bottom: 28.125%;
             height: 0;
             overflow: hidden;
             margin-bottom: 20px;
             border-radius: 8px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            margin: 0 auto; /* Center the video container */
+            margin: 0 auto;
         }
         .video-container iframe {
             position: absolute;
@@ -47,12 +47,12 @@
         }
         .download-link {
             position: absolute;
-            top: 10%; /* Center vertically */
-            left: 10px; /* Adjust horizontal position */
+            top: 10%;
+            left: 10px;
             transform: translateY(-50%);
         }
         .download-link img {
-            width: 50px; /* Adjust size as needed */
+            width: 50px;
             height: auto;
             cursor: pointer;
         }
@@ -67,23 +67,53 @@
             text-align: center;
             font-size: 0.8em;
         }
+        .falling-text {
+            position: absolute;
+            font-size: 24px;
+            animation: fall 2s linear;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(200%);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Ag3🤮🤪😇🤨🤑😬🥺</h1>
+        <h1>Ag3<span id="falling-emoji">🤮</span>🤪😇🤨🤑😬🥺</h1>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/ybx8GesGBSU?si=dmGjALGLkgBC8saM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-    <div class="download-link">
-        <a href="download.php?file=https://raw.githubusercontent.com/Ag3NtK/CS2/main/ag3.cfg" download="ag3.cfg">
-            <img src="cfgicon.png" alt="Download CFG">
-        </a>
-    </div>
-    <footer>
-        <p>Created with ❤️ by Ag3NtK | 
+        <div class="download-link">
+            <a href="download.php?file=https://raw.githubusercontent.com/Ag3NtK/CS2/main/ag3.cfg" download="ag3.cfg">
+                <img src="cfgicon.png" alt="Download CFG">
+            </a>
+        </div>
+        <footer>
+            <p>Created with ❤️ by Ag3NtK | 
                 <a href="https://github.com/Ag3NtK/ag3" target="_blank">GitHub Repository</a></p>
-    </footer>
-</div>
+        </footer>
+    </div>
+
+    <script>
+        const fallingEmoji = document.getElementById('falling-emoji');
+        fallingEmoji.addEventListener('click', () => {
+            const container = document.querySelector('.container');
+            const fallingText = document.createElement('span');
+            fallingText.textContent = 'tore';
+            fallingText.classList.add('falling-text');
+            fallingText.style.left = `${fallingEmoji.offsetLeft + fallingEmoji.offsetWidth / 2}px`;
+            fallingText.style.top = `${fallingEmoji.offsetTop + fallingEmoji.offsetHeight / 2}px`;
+            container.appendChild(fallingText);
+
+            setTimeout(() => {
+                fallingText.remove();
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
