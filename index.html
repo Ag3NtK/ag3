@@ -75,25 +75,11 @@
             text-align: center;
             font-size: 0.8em;
         }
-        .falling-text {
-            position: absolute;
-            font-size: 24px;
-            animation: fall 2s linear;
-            cursor: pointer;
-        }
-        @keyframes fall {
-            0% {
-                transform: translateY(-100%);
-            }
-            100% {
-                transform: translateY(200%);
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-    <h1>Ag3<span id="falling-emoji">🤮</span>🤪😇🤨🤑😬🥺</h1>
+    <h1>Ag3🤮🤪😇🤨🤑😬🥺</h1>
     <div class="video-container">
         <iframe src="https://www.youtube.com/embed/ybx8GesGBSU?si=dmGjALGLkgBC8saM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
@@ -112,22 +98,5 @@
             <a href="https://github.com/Ag3NtK/ag3" target="_blank">GitHub Repository</a></p>
     </footer>
 </div>
-<script>
-    const fallingEmoji = document.getElementById('falling-emoji');
-    fallingEmoji.addEventListener('click', () => {
-        const container = document.querySelector('.container');
-        const fallingText = document.createElement('a');
-        fallingText.textContent = 'Tøre';
-        fallingText.href = 'https://x.com/tore';
-        fallingText.target = '_blank'; // Open the link in a new tab/window
-        fallingText.classList.add('falling-text');
-        fallingText.style.left = `${fallingEmoji.offsetLeft + fallingEmoji.offsetWidth / 2}px`;
-        fallingText.style.top = `${fallingEmoji.offsetTop + fallingEmoji.offsetHeight / 2}px`;
-        container.appendChild(fallingText);
-    setTimeout(() => {
-        fallingText.remove();
-    }, 2000);
-});
-</script>
 </body>
 </html>
