@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ag3NtK</title>
     <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -81,6 +84,13 @@
                 transform: translateY(200%);
             }
         }
+        /* Add styles for the CodeMirror editor */
+        .CodeMirror {
+            height: 300px;
+            border-radius: 8px;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -94,6 +104,7 @@
                 <img src="cfgicon.png" alt="Download CFG">
             </a>
         </div>
+        <textarea id="editor"></textarea>
         <footer>
             <p>Created with ❤️ by Ag3NtK | 
                 <a href="https://github.com/Ag3NtK/ag3" target="_blank">GitHub Repository</a></p>
@@ -117,6 +128,16 @@
                 fallingText.remove();
             }, 2000);
         });
+
+        // Initialize CodeMirror
+        var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+            lineNumbers: true,
+            mode: "text/x-c++src",
+            theme: "default"
+        });
+
+        // Load custom syntax highlighting rules from CS2.xml
+        // This requires converting CS2.xml into a format compatible with CodeMirror
     </script>
 </body>
 </html>
