@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ag3NtK</title>
     <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/mode/simple.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -84,13 +81,6 @@
                 transform: translateY(200%);
             }
         }
-        /* Add styles for the CodeMirror editor */
-        .CodeMirror {
-            height: 300px;
-            border-radius: 8px;
-            margin: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
     </style>
 </head>
 <body>
@@ -104,64 +94,28 @@
                 <img src="cfgicon.png" alt="Download CFG">
             </a>
         </div>
-        <textarea id="editor"></textarea>
         <footer>
             <p>Created with ❤️ by Ag3NtK | 
                 <a href="https://github.com/Ag3NtK/ag3" target="_blank">GitHub Repository</a></p>
         </footer>
     </div>
+<script>
+    const fallingEmoji = document.getElementById('falling-emoji');
+    fallingEmoji.addEventListener('click', () => {
+        const container = document.querySelector('.container');
+        const fallingText = document.createElement('a');
+        fallingText.textContent = 'Tøre';
+        fallingText.href = 'https://x.com/tore';
+        fallingText.target = '_blank'; // Open the link in a new tab/window
+        fallingText.classList.add('falling-text');
+        fallingText.style.left = `${fallingEmoji.offsetLeft + fallingEmoji.offsetWidth / 2}px`;
+        fallingText.style.top = `${fallingEmoji.offsetTop + fallingEmoji.offsetHeight / 2}px`;
+        container.appendChild(fallingText);
 
-    <script>
-        const fallingEmoji = document.getElementById('falling-emoji');
-        fallingEmoji.addEventListener('click', () => {
-            const container = document.querySelector('.container');
-            const fallingText = document.createElement('a');
-            fallingText.textContent = 'Tøre';
-            fallingText.href = 'https://x.com/tore';
-            fallingText.target = '_blank'; // Open the link in a new tab/window
-            fallingText.classList.add('falling-text');
-            fallingText.style.left = `${fallingEmoji.offsetLeft + fallingEmoji.offsetWidth / 2}px`;
-            fallingText.style.top = `${fallingEmoji.offsetTop + fallingEmoji.offsetHeight / 2}px`;
-            container.appendChild(fallingText);
-
-            setTimeout(() => {
-                fallingText.remove();
-            }, 2000);
-        });
-
-        // Define the UDL mode
-        CodeMirror.defineSimpleMode("cs2", {
-            start: [
-                // Comments
-                { regex: /\/\/.*/, token: "comment" },
-                { regex: /\/\*/, token: "comment", next: "comment" },
-                // Keywords
-                { regex: /\b(?:map|de_|default)\b/, token: "keyword" },
-                { regex: /\b(?:rafex|ag3|7ai|7AI|jinc|j1nch|rafex,|ag3ntk,|ag3,|7AIZO\.|7AIZO,|goyo|first|first,|second|second,|third|third,|fourth|fourth,|fifth|fifth,|first:|second:|third:|fourth:|fifth:|1:|2:|3:|4:|5:|teammate|teammate,|Player_0:|Player_1:|Player_2:|Player_3:|Player_4:|Player_5:|\(Njukii|\(Ag3)\b/, token: "keyword" },
-                { regex: /\b(?:pistol|buy|force|eco|buys|Setups:|reaction|antieco|peek|setup|Anitforce)\b/, token: "keyword" },
-                { regex: /\b(?:ct|ct:|A:|B:|mid:|banana|banana\.|guepard,|guepard|mid,|cheetah\.|mid\.|banana\.|3-1-1:|1-1-3:|2-1-2:|romeo|bedroom\.|bedroom|romeo\.|hut|door|heaven|door|door,|ramp|ct_vent|backsite|site|door,|backsite\.|ct_vent\.|banana,|main|main,|donq\.|camara|bridge|window,|A\.|B\.|bridge,|camara,|doors|camara|doors\.|doors,|hut,|hut\.|sandwinch\.|window|window,|truck|truck\.|window\.pillar|pillar,|pillar\.|cave\.|cave|cave,|mini\/behind\.|lane|underheaven\.|underheaven|ninja|ninja\.|lane|lane,|lane\.|mini,|mini|mini\.|boxes|boxes,|box|newbox,|triple|triple,|newbox|\(A|A\)|ramp,|outside|outside,|outside\.|secret,|secret|secret\.|vents|main\.|vents,|top-hut,|top-hut|door\.|taero,|taero|taero\.|box\.|box,|ramp\.|silo|silo\.|silo,|spain|spain,|spain\.|totem|totem\.|totem,|israel,|israel|israel\.|doors\/ramp\.|dav1g|site\.|site,|palace|palace,|palace\.|ropz|ropz,|ropz\.|underpass|underpass,|underpass\.|connector|connector\.|connector,|kitchen\.|kitchen|kitchen,|tetris|tetris,|tetris\.|stairs|stairs\.|stairs,|s1mple|s1mple\.|s1mple,|water|water,|water\.|long|long,|long\.|ivy,|ivy|ivy\.|camera|camera\.|camera,|sky|sky,|sky\.|short|sandbags|sandbag|short\.|short,|sandbags\.|sandbags,|sandbag,|sandbag\.|carpets|carpets\.|carpets,|carpet,|carpet|carpet\.|fat|fat,|fat\.|pilar|pilar,|pilar\.|heaven\.|heaven,|backsite,|elbow|elbow,|elbow\.|boiler|boiler,|boiler\.|aps|aps,|aps\.|vents|vent|main:|silos|silos,|silos\.|silos:|corridor|corridor:|corridor,|corridor\.|library|library,|library\.|arch|arch\.|arch,|ct\.|ct,|car|car,|car\.|vents,|vents\.|pit|pit,|pit\.|minipit|minipit\.|minipit,|graveyard|graveyard\.|graveyard,)\b/, token: "keyword" },
-                { regex: /\b(?:t|t:)\b/, token: "keyword" },
-                { regex: /\b(?:mol|flash|nade|smoke|kit|kevlar|bomb)\b/, token: "keyword" },
-                { regex: /\b-\b/, token: "keyword" },
-                // Numbers
-                { regex: /\b\d+\b/, token: "number" },
-                // Strings
-                { regex: /"(?:[^\\]|\\.)*?(?:"|$)/, token: "string" },
-                // Punctuation
-                { regex: /[{}()\[\]]/, token: "punctuation" },
-            ],
-            comment: [
-                { regex: /.*?\*\//, token: "comment", next: "start" },
-                { regex: /.*/, token: "comment" },
-            ],
-        });
-
-        // Initialize CodeMirror with the custom UDL mode
-        var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-            lineNumbers: true,
-            mode: "cs2",
-            theme: "default"
-        });
-    </script>
+        setTimeout(() => {
+            fallingText.remove();
+        }, 2000);
+    });
+</script>
 </body>
 </html>
