@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ag3NtK</title>
+    <title>Ag3NtK - CS2 Text Editor</title>
     <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/codemirror.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/mode/meta.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,13 +16,14 @@
             padding: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 20px auto;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
+            display: flex;
+            justify-content: space-between;
         }
         h1 {
             text-align: center;
@@ -84,6 +85,11 @@
                 transform: translateY(200%);
             }
         }
+        .code-editor-container {
+            width: 50%;
+            padding-left: 20px;
+            border-left: 1px solid #ccc;
+        }
         /* Add styles for the CodeMirror editor */
         .CodeMirror {
             height: 300px;
@@ -95,21 +101,25 @@
 </head>
 <body>
     <div class="container">
-        <h1>Ag3<span id="falling-emoji">🤮</span>🤪😇🤨🤑😬🥺</h1>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/ybx8GesGBSU?si=dmGjALGLkgBC8saM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div style="flex: 1; padding-right: 20px;">
+            <h1>Ag3<span id="falling-emoji">🤮</span>🤪😇🤨🤑😬🥺</h1>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/ybx8GesGBSU?si=dmGjALGLkgBC8saM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="download-link">
+                <a href="download.php?file=https://raw.githubusercontent.com/Ag3NtK/CS2/main/ag3.cfg" download="ag3.cfg">
+                    <img src="cfgicon.png" alt="Download CFG">
+                </a>
+            </div>
         </div>
-        <div class="download-link">
-            <a href="download.php?file=https://raw.githubusercontent.com/Ag3NtK/CS2/main/ag3.cfg" download="ag3.cfg">
-                <img src="cfgicon.png" alt="Download CFG">
-            </a>
+        <div class="code-editor-container">
+            <textarea id="code" name="code"></textarea>
         </div>
-        <textarea id="editor"></textarea>
-        <footer>
-            <p>Created with ❤️ by Ag3NtK | 
-                <a href="https://github.com/Ag3NtK/ag3" target="_blank">GitHub Repository</a></p>
-        </footer>
     </div>
+    <footer>
+        <p>Created with ❤️ by Ag3NtK | 
+            <a href="https://github.com/Ag3NtK/ag3" target="_blank">GitHub Repository</a></p>
+    </footer>
 
     <script>
         const fallingEmoji = document.getElementById('falling-emoji');
@@ -129,15 +139,40 @@
             }, 2000);
         });
 
-        // Initialize CodeMirror
-        var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-            lineNumbers: true,
-            mode: "text/x-c++src",
-            theme: "default"
+        // Define the UDL mode
+        CodeMirror.defineSimpleMode("cs2", {
+            start: [
+                // Comments
+                { regex: /\/\/.*/, token: "comment" },
+                { regex: /\/\*/, token: "comment", next: "comment" },
+                // Keywords
+                { regex: /\b(?:map|de_|default)\b/, token: "keyword" },
+                { regex: /\b(?:rafex|ag3|7ai|7AI|jinc|j1nch|rafex,|ag3ntk,|ag3,|7AIZO\.|7AIZO,|goyo|first|first,|second|second,|third|third,|fourth|fourth,|fifth|fifth,|first:|second:|third:|fourth:|fifth:|1:|2:|3:|4:|5:|teammate|teammate,|Player_0:|Player_1:|Player_2:|Player_3:|Player_4:|Player_5:|\(Njukii|\(Ag3)\b/, token: "keyword" },
+                { regex: /\b(?:pistol|buy|force|eco|buys|Setups:|reaction|antieco|peek|setup|Anitforce)\b/, token: "keyword" },
+                { regex: /\b(?:ct|ct:|A:|B:|mid:|banana|banana\.|guepard,|guepard|mid,|cheetah\.|mid\.|banana\.|3-1-1:|1-1-3:|2-1-2:|romeo|bedroom\.|bedroom|romeo\.|hut|door|heaven|door|door,|ramp|ct_vent|backsite|site|door,|backsite\.|ct_vent\.|banana,|main|main,|donq\.|camara|bridge|window,|A\.|B\.|bridge,|camara,|doors|camara|doors\.|doors,|hut,|hut\.|sandwinch\.|window|window,|truck|truck\.|window\.pillar|pillar,|pillar\.|cave\.|cave|cave,|mini\/behind\.|lane|underheaven\.|underheaven|ninja|ninja\.|lane|lane,|lane\.|mini,|mini|mini\.|boxes|boxes,|box|newbox,|triple|triple,|newbox|\(A|A\)|ramp,|outside|outside,|outside\.|secret,|secret|secret\.|vents|main\.|vents,|top-hut,|top-hut|door\.|taero,|taero|taero\.|box\.|box,|ramp\.|silo|silo\.|silo,|spain|spain,|spain\.|totem|totem\.|totem,|israel,|israel|israel\.|doors\/ramp\.|dav1g|site\.|site,|palace|palace,|palace\.|ropz|ropz,|ropz\.|underpass|underpass,|underpass\.|connector|connector\.|connector,|kitchen\.|kitchen|kitchen,|tetris|tetris,|tetris\.|stairs|stairs\.|stairs,|s1mple|s1mple\.|s1mple,|water|water,|water\.|long|long,|long\.|ivy,|ivy|ivy\.|camera|camera\.|camera,|sky|sky,|sky\.|short|sandbags|sandbag|short\.|short,|sandbags\.|sandbags,|sandbag,|sandbag\.|carpets|carpets\.|carpets,|carpet,|carpet|carpet\.|fat|fat,|fat\.|pilar|pilar,|pilar\.|heaven\.|heaven,|backsite,|elbow|elbow,|elbow\.|boiler|boiler,|boiler\.|aps|aps,|aps\.|vents|vent|main:|silos|silos,|silos\.|silos:|corridor|corridor:|corridor,|corridor\.|library|library,|library\.|arch|arch\.|arch,|ct\.|ct,|car|car,|car\.|vents,|vents\.|pit|pit,|pit\.|minipit|minipit\.|minipit,|graveyard|graveyard\.|graveyard,)\b/, token: "keyword" },
+                { regex: /\b(?:t|t:)\b/, token: "keyword" },
+                { regex: /\b(?:mol|flash|nade|smoke|kit|kevlar|bomb)\b/, token: "keyword" },
+                { regex: /\b-\b/, token: "keyword" },
+                // Numbers
+                { regex: /\b\d+\b/, token: "number" },
+                // Strings
+                { regex: /"(?:[^\\]|\\.)*?(?:"|$)/, token: "string" },
+                // Punctuation
+                { regex: /[{}()\[\]]/, token: "punctuation" },
+            ],
+            comment: [
+                { regex: /.*?\*\//, token: "comment", next: "start" },
+                { regex: /.*/, token: "comment" },
+            ],
         });
 
-        // Load custom syntax highlighting rules from CS2.xml
-        // This requires converting CS2.xml into a format compatible with CodeMirror
+        // Initialize CodeMirror editor
+        const editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+            lineNumbers: true,
+            mode: "cs2",
+            theme: "default",
+        });
     </script>
 </body>
 </html>
+
