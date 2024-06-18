@@ -71,6 +71,7 @@
             position: absolute;
             font-size: 24px;
             animation: fall 2s linear;
+            cursor: pointer;
         }
         @keyframes fall {
             0% {
@@ -103,8 +104,10 @@
         const fallingEmoji = document.getElementById('falling-emoji');
         fallingEmoji.addEventListener('click', () => {
             const container = document.querySelector('.container');
-            const fallingText = document.createElement('span');
-            fallingText.textContent = 'Tøre';
+            const fallingText = document.createElement('a');
+            fallingText.textContent = 'tore';
+            fallingText.href = 'https://x.com/tore';
+            fallingText.target = '_blank'; // Open the link in a new tab/window
             fallingText.classList.add('falling-text');
             fallingText.style.left = `${fallingEmoji.offsetLeft + fallingEmoji.offsetWidth / 2}px`;
             fallingText.style.top = `${fallingEmoji.offsetTop + fallingEmoji.offsetHeight / 2}px`;
