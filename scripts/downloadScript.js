@@ -1,4 +1,4 @@
-// script.js
+// downloadScript.js
 
 function downloadFile(url, filename) {
     // Create a temporary link element
