@@ -45,27 +45,24 @@
             border: none;
             border-radius: 8px;
         }
-        .download-link-1 {
-            position: absolute;
-            top: 10%;
-            left: 10px;
-            transform: translateY(-50%);
-        }
-
-        .download-link-2 {
-            position: absolute;
-            top: calc(10% + 80px); /* 10% + 50px to position it 10px below the first link */
-            left: 10px;
-            transform: translateY(-50%);
-        }
-        
+        .download-link-1,
+        .download-link-2,
         .download-link-3 {
             position: absolute;
-            top: calc(10% + 160px); /* 10% + 50px to position it 10px below the first link */
             left: 10px;
+        }
+        .download-link-1 {
+            top: 10%;
             transform: translateY(-50%);
         }
-        
+        .download-link-2 {
+            top: calc(10% + 80px); /* 10% + 70px + 10px spacing */
+            transform: translateY(-50%);
+        }
+        .download-link-3 {
+            top: calc(10% + 160px); /* 10% + 140px + 20px spacing */
+            transform: translateY(-50%);
+        }
         .download-link-1 img,
         .download-link-2 img,
         .download-link-3 img {
@@ -88,29 +85,26 @@
 </head>
 <body>
     <div class="container">
-    <h1>Ag3🤮🤪😇🤨🤑😬🥺</h1>
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/ybx8GesGBSU?si=dmGjALGLkgBC8saM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <h1>Ag3🤮🤪😇🤨🤑😬🥺</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/ybx8GesGBSU?si=dmGjALGLkgBC8saM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="download-link-1">
+            <img src="images/cfgicon.png" alt="Download CFG" onclick="downloadFile('https://raw.githubusercontent.com/Ag3NtK/CS2/main/ag3.cfg', 'ag3.cfg')">
+        </div>
+        <div class="download-link-2">
+            <img src="images/debloaticon.png" alt="Download DeBloat" onclick="downloadFile('https://raw.githubusercontent.com/Ag3NtK/Ag3Debloat/main/Ag3Install/DeBloat.bat', 'DeBloat.bat')">
+        </div>
+        <div class="download-link-3">
+            <img src="images/appsicon.png" alt="Download AppsInstaller" onclick="downloadFile('https://raw.githubusercontent.com/Ag3NtK/Ag3Debloat/main/Ag3Install/AppsInstaller.bat', 'AppsInstaller.bat')">
+        </div>
+        <footer>
+            <p>Created with ❤️ by Ag3NtK | 
+                <a href="https://github.com/Ag3NtK/ag3" target="_blank">GitHub Repository</a></p>
+        </footer>
     </div>
-    <div class="download-link-1">
-        <a href="download.php?file=https://raw.githubusercontent.com/Ag3NtK/CS2/main/ag3.cfg" download="ag3.cfg">
-            <img src="images/cfgicon.png" alt="Download CFG">
-        </a>
-    </div>
-    <div class="download-link-2">
-        <a href="download.php?file=https://raw.githubusercontent.com/Ag3NtK/Ag3Debloat/main/Ag3Install/DeBloat.bat" download="DeBloat.bat">
-            <img src="images/debloaticon.png" alt="Download DeBloat">
-        </a>
-    </div>
-     <div class="download-link-3">
-        <a href="download.php?file=https://raw.githubusercontent.com/Ag3NtK/Ag3Debloat/main/Ag3Install/AppsInstaller.bat" download="AppsInstaller.bat">
-            <img src="images/appsicon.png" alt="Download AppsInstaller">
-        </a>
-    </div>
-    <footer>
-        <p>Created with ❤️ by Ag3NtK | 
-            <a href="https://github.com/Ag3NtK/ag3" target="_blank">GitHub Repository</a></p>
-    </footer>
-</div>
+
+    <script src="scripts/downloadScript.js"></script>
 </body>
 </html>
+
