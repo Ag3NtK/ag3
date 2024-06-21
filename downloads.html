@@ -79,6 +79,12 @@
             text-decoration: none;
         }
 
+        a[href="downloads.html"] {
+            background-color: #ddd; /* Highlight Downloads link in grey */
+            border-radius: 4px;
+            padding: 5px 10px;
+        }
+
         a:hover {
             color: grey;
         }
@@ -108,7 +114,6 @@
             transition: background-color 0.3s;
         }
 
-        nav ul li a.active,
         nav ul li a:hover {
             background-color: #ddd;
         }
@@ -119,7 +124,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="downloads.html" class="active">Downloads</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
                 <li><a href="videos.html">Videos</a></li>
             </ul>
         </nav>
