@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 1000px; /* Increased from 800px to 1000px */
+    max-width: 1000px; /* Width on the X axis */
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
@@ -14,6 +14,10 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
     min-height: 600px; /* Adjust this value to increase height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 h1 {
@@ -43,31 +47,19 @@ h1 {
     border-radius: 8px;
 }
 
-.download-link-1,
-.download-link-2,
-.download-link-3 {
-    position: absolute;
-    left: 10px;
+.download-links {
+    display: flex;
+    gap: 20px; /* Space between icons */
+    margin-bottom: 20px;
 }
 
-.download-link-1 {
-    top: 10%;
-    transform: translateY(-50%);
+.download-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.download-link-2 {
-    top: calc(10% + 80px); /* 10% + 70px + 10px spacing */
-    transform: translateY(-50%);
-}
-
-.download-link-3 {
-    top: calc(10% + 160px); /* 10% + 140px + 20px spacing */
-    transform: translateY(-50%);
-}
-
-.download-link-1 img,
-.download-link-2 img,
-.download-link-3 img {
+.download-links img {
     width: 70px; /* Increase image size */
     height: auto;
     cursor: pointer;
