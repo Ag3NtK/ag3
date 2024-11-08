@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ag3NtK - Videos</title>
+    <title>Ag3NtK - Settings</title>
     <link rel="icon" href="images/favicon.png" type="image/png">
     <style>
         body {
@@ -31,35 +31,44 @@
         h1 {
             text-align: center;
             color: #333;
+            margin-bottom: 20px;
         }
 
-        .video-container {
-            position: relative;
-            width: 70%;
-            padding-bottom: 39.375%;
-            height: 0;
-            overflow: hidden;
+        .download-section, .images-section {
+            width: 100%;
             margin-bottom: 20px;
+        }
+
+        .download-section a {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .download-section a:hover {
+            background-color: #555;
+        }
+
+        .images-section img {
+            max-width: 100%;
+            height: auto;
             border-radius: 8px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            margin: 0 auto;
+            margin-bottom: 10px;
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 8px;
-        }
         a {
             color: inherit;
             text-decoration: none;
         }
-        a[href="videos.html"] {
-            background-color: #ddd; /* Highlight Home link in grey */
+        
+        a[href="settings.html"] {
+            background-color: #ddd;
             border-radius: 4px;
             padding: 5px 10px;
         }
@@ -104,12 +113,26 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="downloads.html">Downloads</a></li>
-                <li><a href="videos.html">Videos</a></li>
+                <li><a href="settings.html">Settings</a></li>
             </ul>
         </nav>
-        <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/KBu14_G5f24?si=9jOO77yguALvtyxa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <h1>Settings</h1>
+        
+        <div class="download-section">
+            <p><strong>Download Configuration File:</strong></p>
+            <a href="https://github.com/Ag3NtK/CS2/releases/download/03.06.2024/ag3.cfg" download>Download CFG</a>
         </div>
+
+        <div class="images-section">
+            <p><strong>Settings Screenshots:</strong></p>
+            <img src="images/Cs2 Video advanced video 1.png" alt="CS2 Advanced Video 1">
+            <img src="images/Cs2 Video advanced video 2.png" alt="CS2 Advanced Video 2">
+            <img src="images/Cs2 Video video.png" alt="CS2 Video">
+            <img src="images/Nvidia panel 1.png" alt="Nvidia Panel 1">
+            <img src="images/Nvidia panel 2.png" alt="Nvidia Panel 2">
+            <img src="images/Nvidia panel 3.png" alt="Nvidia Panel 3">
+        </div>
+
         <footer>
             <p>Created with ❤️ by Ag3NtK | 
                 <a href="https://github.com/Ag3NtK/ag3" target="_blank">GitHub Repository</a></p>
