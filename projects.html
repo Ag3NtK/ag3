@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ag3NtK - About Me</title>
+    <title>Ag3NtK - Projects</title>
     <link rel="icon" href="images/favicon.png" type="image/png">
     <style>
         body {
@@ -30,6 +30,13 @@
         h1 {
             text-align: center;
             color: #333;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 5px;
+            margin-top: 30px;
         }
         
         a {
@@ -37,26 +44,27 @@
             text-decoration: none;
         }
         
-        /* This now highlights "About Me" (index.html) */
-        a[href="index.html"] {
-            background-color: #ddd; 
+        /* This now highlights "Projects" (projects.html) */
+        a[href="projects.html"] {
+            background-color: #ddd;
             border-radius: 4px;
             padding: 5px 10px;
         }
-        
+
         a:hover {
             color: grey;
         }
 
         main {
-            flex-grow: 1; /* Ensures content fills space */
-            padding: 0 20px; /* Add some padding to content */
+            flex-grow: 1;
+            width: 100%;
         }
 
         footer {
             text-align: center;
             font-size: 0.8em;
             width: 100%;
+            margin-top: 20px;
         }
 
         nav {
@@ -86,21 +94,40 @@
         nav ul li a:hover {
             background-color: #ddd;
         }
+        
+        .project {
+            margin-bottom: 40px;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <nav>
             <ul>
+                <!-- Updated Nav -->
                 <li><a href="index.html">About Me</a></li>
                 <li><a href="projects.html">Projects</a></li>
             </ul>
         </nav>
 
         <main>
-            <h1>About Me</h1>
-            <p>Welcome to my website! My name is Ag3NtK.</p>
-            <p>You can write your introduction here. Talk about your skills, your interests, what kind of projects you like to build, or any other information you'd like to share.</p>
+            <h1>My Projects</h1>
+            <p>This is where you can add your projects. Below is a sample structure you can use.</p>
+
+            <!-- 
+            
+            EXAMPLE PROJECT:
+            You can copy and paste this block for each new project you want to add.
+            
+            <div class="project">
+                <h2>Your Project Title</h2>
+                <p>A description of your project. Talk about what it does, what technologies you used, and what you learned.</p>
+                <a href="[LINK_TO_YOUR_PROJECT_HERE]" target="_blank">View on GitHub</a>
+            </div>
+
+            -->
+
         </main>
         
         <footer>
